@@ -111,32 +111,41 @@ class TaranisNgConnector extends CommonConnectorTools
             ]
         ]
     ];
+
+    // settings for your local instance of TNG
     public $settings = [
+        'name' => [
+            'type' => 'text'
+        ],
+        'public_url' => [
+            'type' => 'text'
+        ],
         'url' => [
             'type' => 'text'
         ],
         'authkey' => [
             'type' => 'text'
-        ],
-        'skip_ssl' => [
-            'type' => 'boolean'
-        ],
+        ]
     ];
     public $settingsPlaceholder = [
-        'url' => 'https://your.taranisng.intance',
-        'authkey' => '',
-        'skip_ssl' => '0',
+        'name' => 'My Taranis NG',
+        'public_url' => 'https://your.taranisng.intance',
+        'url' => 'http://192.168.100.2',
+        'authkey' => '2bSdtioCtip5u2i0Gxl8cjhkAtGjRu5Wpjhnhpl5',
     ];
 
     public function addSettingValidatorRules($validator)
     {
         return $validator
+            ->requirePresence('name')
+            ->notEmptyString('name', __('A name must be provided'))
+            ->requirePresence('public_url')
+            ->notEmptyString('public_url', __('A Public URL must be provided'))
             ->requirePresence('url')
             ->notEmptyString('url', __('An URL must be provided'))
             ->requirePresence('authkey')
             ->notEmptyString('authkey', __('An Authkey must be provided'))
-            ->lengthBetween('authkey', [40, 40], __('The authkey must be 40 character long'))
-            ->boolean('skip_ssl');
+            ->lengthBetween('authkey', [40, 40], __('The authkey must be 40 character long'));
     }
 
     public function addExposedFunction(string $functionName): void
