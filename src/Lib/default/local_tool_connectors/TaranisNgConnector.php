@@ -1,5 +1,5 @@
 <?php
-namespace MispConnector;
+namespace TaranisNgConnector;
 require_once(ROOT . '/src/Lib/default/local_tool_connectors/CommonConnectorTools.php');
 use CommonConnectorTools\CommonConnectorTools;
 use Cake\Http\Client;
