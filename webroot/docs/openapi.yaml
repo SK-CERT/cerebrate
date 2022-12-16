@@ -1567,6 +1567,7 @@ components:
       nullable: true
       enum:
         - "MispConnector"
+        - "TaranisNgConnector"
 
     LocalToolSettings:
       type: string
