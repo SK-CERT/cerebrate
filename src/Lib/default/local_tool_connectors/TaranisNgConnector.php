@@ -7,11 +7,10 @@ use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Exception\MethodNotAllowedException;
 use Cake\Http\Client\Response;
 
-class MispConnector extends CommonConnectorTools
+class TaranisNgConnector extends CommonConnectorTools
 {
     public $description = 'TaranisNG connector, handling diagnostics.';
 
-    public $description = '';
     public $connectorName = 'TaranisNgConnector';
     public $name = 'Taranis NG';
     public $version = '0.1';
@@ -112,7 +111,6 @@ class MispConnector extends CommonConnectorTools
             ]
         ]
     ];
-    public $version = '0.1';
     public $settings = [
         'url' => [
             'type' => 'text'
